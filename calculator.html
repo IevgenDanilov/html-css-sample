@@ -23,7 +23,7 @@
     width:250px;
   }
   td {
-  background-color:#999;
+  background-color:#008000;
   }
   }
 </style>
@@ -40,9 +40,9 @@
      <tr>
          <td colspan="3"></td>
          <td><input name="btnClear" type="Button"
-            value="C" onclick="Clear()" /></td>
+            value="C" onclick="Clear()" style="background-color:Khaki"/></td>
          <td><input name="btnClearEntry" type="Button"
-            value="CE" onclick="ClearEntry()" /></td>
+            value="CE" onclick="ClearEntry()" style="background-color:Khaki"/></td>
      </tr>
      <tr>
          <td><input name="btnSeven" type="Button"
@@ -52,9 +52,9 @@
          <td><input name="btnNine" type="Button"
             value="9" onclick="NumPressed(9)"></td>
          <td><input name="btnPlus" type="Button"
-            value="+" onclick="Operation('+')" /></td>
+            value="+" onclick="Operation('+')" style="background-color:Khaki"/></td>
          <td><input name="btnMultiply" type="Button"
-            value="*" onclick="Operation('*')" /></td>
+            value="*" onclick="Operation('*')" style="background-color:Khaki"/></td>
        </tr>
      <tr>
          <td><input name="btnFour" type="Button"
@@ -64,9 +64,9 @@
          <td><input name="btnSix" type="Button"
             value="6" onclick="NumPressed(6)"></td>
          <td><input name="btnMinus" type="Button"
-            value="-" onclick="Operation('-')" /></td>
+            value="-" onclick="Operation('-')" style="background-color:Khaki"/></td>
          <td align=middle><input name="btnDivide" type="Button"
-            value=" / " onclick="Operation('/')" /></td>
+            value=" / " onclick="Operation('/')" style="background-color:Khaki"/></td>
      </tr>
      <tr>
          <td><input name="btnOne" type="Button"
@@ -76,8 +76,9 @@
          <td><input name="btnThree" type="Button"
             value="3" onclick="NumPressed(3)"></td>
          <td><input name="btnPercent" type="Button"
-            value="%" onclick="Percent()" /></td>
-         <td align=middle>&nbsp;</td>
+            value="%" onclick="Percent()" style="background-color:Khaki"/></td>
+         <td><input name="btnSqrt" type="Button"
+            value=&radic; onclick="Sqrt()" style="background-color:Khaki"/></td>
      </tr>
      <tr>
          <td><input name="btnZero" type="Button"
@@ -87,7 +88,7 @@
          <td><input name="btnNeg" type="button"
             value="+/-" onclick="Neg()" /></td>
          <td colspan="2"><input id="btnWide" name="btnEquals"
-            type="Button" value="=" onclick="Operation('=')"></td>
+            type="Button" value="=" onclick="Operation('=')" style="background-color:Khaki"></td>
      </tr>
      </table>
 </form>
@@ -137,7 +138,7 @@ function Operation (Op)
       else if ( '/' == PendingOp )
         Currents /= parseFloat(Readout);
       else if ( '*' == PendingOp )
-        Currents *= parseFloat(Readout);
+        Currents *= parseFloat(Readout);   
       else
         Currents = parseFloat(Readout);
       Fcalc.ReadOut.value = Currents;
@@ -194,5 +195,13 @@ function Percent ()
       (parseFloat(Fcalc.ReadOut.value) / 100) * 
       parseFloat(Currents);
 }
+
+// вычисляем значение корня
+function Sqrt () 
+{
+    Fcalc.ReadOut.value = 
+      Math.sqrt(parseFloat(Fcalc.ReadOut.value));
+}
+
 </script>
 </body>
